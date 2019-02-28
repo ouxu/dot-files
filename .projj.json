@@ -1,0 +1,16 @@
+{
+  "base": "~/Workspace",
+  "hooks": {
+    "postadd": "git_config_user"
+  },
+  "postadd": {
+    "github.com": {
+      "name": "ouxu",
+      "email": "out_xu@outlook.com"
+    },
+    "gitlab.alibaba-inc.com": {
+      "name": "风乘",
+      "email": "fengcheng.xjj@alibaba-inc.com"
+    }
+  }
+}

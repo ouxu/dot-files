@@ -1,0 +1,24 @@
+[General]
+enhanced_tray_menu=true
+first_run=false
+font_dialog_size=@Size(500 390)
+hex_color=true
+language=zh_cn
+read_tips=3
+start_on_boot=true
+
+[Hotkey]
+hide="469762132, 17"
+paste="335544404, 17"
+snip="335544385, 0"
+snip_and_copy="100663361, 0"
+
+[Hotkey2]
+mouse_action_for_close=25
+
+[Paste2]
+max_hidden=10
+
+[Snip]
+ask_for_confirm_on_esc=false
+detect_ui_elements=true
