@@ -1,6 +1,6 @@
 
 # printf motd
-cat /etc/motd
+# cat /etc/motd
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -56,7 +56,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm osx web-search zsh-syntax-highlighting colored-man sudo wd history last-working-dir)
+plugins=(git npm osx web-search zsh-syntax-highlighting sudo wd history last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,37 +91,35 @@ source $ZSH/oh-my-zsh.sh
 alias pwc="pwd | pbcopy; pwd"
 alias p="projj find"
 
+cdtmp() {
+   cd $(mktemp -d $HOME/Tmp/${1:-xu}-XXXX);
+}
+
 mkdir() {
  command mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
-alias cdtmp="mkdir -p /private/tmp/xu-$RANDOM"
-
 # add user bin
 export PATH="~/.bin:$PATH"
 
-# Android env path
-export ANDROID_HOME=${HOME}/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export DEBUG_COLORS=1
-
-# mysql env path
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
 # java env path
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.0.1.jdk/Contents/Home"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
 export CLASS_PATH="$JAVA_HOME/lib"
 export PATH="$PATH:$JAVA_HOME/bin"
 
 # nvm env path
-export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export NVM_DIR="$HOME/.nvm"
+export PATH="$NVM_DIR/versions/node/v10.16.0/bin:$PATH"
 
-# python env path
-# export PYTHON_HOME="$HOME/Library/Python/3.7"
-# export PATH="$PYTHON_HOME/bin:$PATH"
+nvm(){
+   unfunction "nvm"
+   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"   # This loads nvm
+   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_↷
 
+   nvm "$@"
+}
